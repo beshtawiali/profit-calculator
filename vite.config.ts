@@ -24,6 +24,7 @@ export default defineConfig(() => {
           blog: path.resolve(__dirname, 'blog.html'),
           blogArticle1: path.resolve(__dirname, 'blog-article-1.html'),
           blogArticle2: path.resolve(__dirname, 'blog-article-2.html'),
+          blogArticle3: path.resolve(__dirname, 'blog-article-3.html'),
           about: path.resolve(__dirname, 'about.html'),
           contact: path.resolve(__dirname, 'contact.html'),
           privacyPolicy: path.resolve(__dirname, 'privacy-policy.html'),
