@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Margin vs Markup: The #1 Pricing Mistake Small Businesses Make</title>
+  <meta name="description" content="Confusing profit margin with markup percentage leads to underpriced products and lost revenue. Learn the exact difference with mathematical examples." />
+  <meta name="keywords" content="margin vs markup, pricing mistake, markup percentage, profit margin calculation, retail pricing guide" />
+  <link rel="stylesheet" href="/src/index.css" />
+  <script type="module" src="/src/js/common.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased">
+
+  <!-- HEADER -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/index.html" class="flex items-center space-x-2.5 group">
+          <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-sm group-hover:bg-blue-700 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+          </div>
+          <span class="text-xl font-bold tracking-tight text-slate-900">Fin<span class="text-blue-600">Calc</span></span>
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-700">
+          <a href="/index.html" class="hover:text-blue-600 transition-colors">Home</a>
+          
+          <div class="relative group">
+            <button class="flex items-center space-x-1 hover:text-blue-600 transition-colors py-2">
+              <span>Calculators</span>
+              <svg class="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="absolute left-0 mt-1 w-64 bg-white rounded-xl shadow-lg border border-slate-200 py-2 hidden group-hover:block transition-all z-50">
+              <a href="/profit-margin-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">Profit Margin Calculator</a>
+              <a href="/markup-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">Markup Calculator</a>
+              <a href="/sales-tax-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">VAT / Sales Tax Calculator</a>
+              <a href="/break-even-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">Break-even Calculator</a>
+              <a href="/discount-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">Discount Calculator</a>
+              <a href="/roi-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">ROI Calculator</a>
+            </div>
+          </div>
+
+          <a href="/blog.html" class="text-blue-600 font-semibold">Articles</a>
+          <a href="/about.html" class="hover:text-blue-600 transition-colors">About Us</a>
+          <a href="/contact.html" class="hover:text-blue-600 transition-colors">Contact</a>
+        </nav>
+
+        <div class="flex items-center space-x-3">
+          <div class="flex items-center space-x-1.5 bg-slate-100 rounded-lg px-2.5 py-1 border border-slate-200">
+            <span class="text-xs font-semibold text-slate-500">Currency:</span>
+            <select id="currency-select" class="bg-transparent text-xs font-bold text-slate-800 focus:outline-none cursor-pointer">
+              <option value="$">$ USD</option>
+              <option value="€">€ EUR</option>
+              <option value="£">£ GBP</option>
+              <option value="₹">₹ INR</option>
+              <option value="A$">A$ AUD</option>
+            </select>
+          </div>
+
+          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-2 pb-4 space-y-2">
+      <a href="/index.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Home</a>
+      <a href="/blog.html" class="block px-3 py-2 rounded-lg text-sm font-semibold text-blue-600 bg-blue-50">Articles</a>
+    </div>
+  </header>
+
+  <!-- AD UNIT: Header -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <!-- AD UNIT: Header -->
+    <div class="adsense-unit">
+      <span>Header Leaderboard Ad Placeholder</span>
+    </div>
+  </div>
+
+  <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+    
+    <nav class="flex items-center space-x-2 text-xs font-medium text-slate-500 mb-4">
+      <a href="/index.html" class="hover:text-blue-600">Home</a>
+      <span>/</span>
+      <a href="/blog.html" class="hover:text-blue-600">Articles</a>
+      <span>/</span>
+      <span class="text-slate-800">Margin vs Markup</span>
+    </nav>
+
+    <article class="article-content bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-xs">
+      <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full inline-block mb-3">Pricing Strategy</span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">Margin vs Markup: The #1 Pricing Mistake Small Businesses Make</h1>
+      
+      <div class="flex items-center space-x-4 pb-6 mb-6 border-b border-slate-100 text-xs text-slate-500">
+        <span>By FinCalc Editorial Team</span>
+        <span>•</span>
+        <span>July 26, 2026</span>
+        <span>•</span>
+        <span>5 Min Read</span>
+      </div>
+
+      <p class="text-lg text-slate-700 leading-relaxed font-medium mb-6">
+        Every year, thousands of new retail entrepreneurs, e-commerce sellers, and contractors set their selling prices believing they are securing a 50% profit margin, only to discover at tax time that their actual margin was a meager 33%. What caused this financial discrepancy? They confused <strong>Markup</strong> with <strong>Profit Margin</strong>.
+      </p>
+
+      <h2>The Core Mathematical Difference</h2>
+      <p>
+        While both terms measure profit, their starting baseline (the divisor in the math equation) is fundamentally different:
+      </p>
+      <ul>
+        <li><strong>Profit Margin</strong> measures profit as a percentage of <em>total revenue (selling price)</em>.</li>
+        <li><strong>Markup</strong> measures profit as a percentage of <em>item cost (COGS)</em>.</li>
+      </ul>
+
+      <div class="formula-box">
+        Margin (%) = (Profit / Selling Price) &times; 100<br />
+        Markup (%) = (Profit / Item Cost) &times; 100
+      </div>
+
+      <h2>A Real-World Example: The $50 Pricing Trap</h2>
+      <p>
+        Suppose an online seller purchases a handcrafted ceramic mug from a supplier for $50.00. The seller desires a 50% profit margin to cover shipping, website fees, and advertising.
+      </p>
+      <p>
+        <strong>The Mistake:</strong> The seller adds a 50% markup ($25.00) to the $50.00 cost, pricing the mug at $75.00.
+      </p>
+      <p>
+        <strong>The Reality:</strong>
+      </p>
+      <ul>
+        <li>Markup = ($25.00 profit / $50.00 cost) &times; 100 = <strong>50% Markup</strong></li>
+        <li>Actual Margin = ($25.00 profit / $75.00 selling price) &times; 100 = <strong>33.33% Profit Margin</strong></li>
+      </ul>
+      <p>
+        To achieve a true 50% profit margin, the mug must actually be sold for $100.00 ($50 cost + $50 profit)!
+      </p>
+
+      <h2>Margin vs Markup Comparison Table</h2>
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-sm text-left border border-slate-200 rounded-lg">
+          <thead class="bg-slate-100 text-slate-800 uppercase font-bold text-xs">
+            <tr>
+              <th class="p-3 border-b">Desired Profit Margin</th>
+              <th class="p-3 border-b">Required Markup Percentage</th>
+              <th class="p-3 border-b">Selling Price on $100 Cost</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            <tr><td class="p-3 font-semibold text-slate-800">15% Margin</td><td class="p-3">17.6% Markup</td><td class="p-3 font-mono">$117.65</td></tr>
+            <tr><td class="p-3 font-semibold text-slate-800">25% Margin</td><td class="p-3">33.3% Markup</td><td class="p-3 font-mono">$133.33</td></tr>
+            <tr><td class="p-3 font-semibold text-slate-800">33.3% Margin</td><td class="p-3">50.0% Markup</td><td class="p-3 font-mono">$150.00</td></tr>
+            <tr><td class="p-3 font-semibold text-slate-800">50.0% Margin</td><td class="p-3">100.0% Markup</td><td class="p-3 font-mono">$200.00</td></tr>
+            <tr><td class="p-3 font-semibold text-slate-800">75.0% Margin</td><td class="p-3">300.0% Markup</td><td class="p-3 font-mono">$400.00</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Interactive Calculators to Avoid Pricing Errors</h2>
+      <p>
+        Never guess your pricing. Use FinCalc’s specialized, free calculation tools:
+      </p>
+      <div class="flex flex-wrap gap-4 my-6">
+        <a href="/profit-margin-calculator.html" class="px-4 py-2.5 rounded-xl bg-blue-600 text-white font-bold text-xs shadow-xs hover:bg-blue-700 transition-colors">Launch Profit Margin Calculator &rarr;</a>
+        <a href="/markup-calculator.html" class="px-4 py-2.5 rounded-xl bg-slate-100 text-slate-800 font-bold text-xs border border-slate-200 hover:bg-slate-200 transition-colors">Launch Markup Calculator &rarr;</a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <!-- AD UNIT: Footer -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4 w-full">
+    <!-- AD UNIT: Footer -->
+    <div class="adsense-unit">
+      <span>Footer Banner Ad Placeholder</span>
+    </div>
+  </div>
+
+  <footer class="bg-white border-t border-slate-200 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-xs text-slate-500">
+      <p>© 2026 FinCalc. Educational financial tools.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

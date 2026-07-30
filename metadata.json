@@ -1,0 +1,6 @@
+{
+  "name": "FinCalc - Business & Financial Calculators",
+  "description": "A comprehensive suite of interactive business and financial calculators with detailed guides, worked examples, and practical financial insights.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

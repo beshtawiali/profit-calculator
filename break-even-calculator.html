@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Break-Even Calculator - Calculate Break-Even Point & Volume</title>
+  <meta name="description" content="Free Break-Even Calculator with visual interactive chart. Calculate required unit sales volume and revenue dollars to cover fixed and variable costs." />
+  <meta name="keywords" content="break even calculator, break even analysis, fixed costs, variable costs, contribution margin, break even formula, profit threshold" />
+  <link rel="stylesheet" href="/src/index.css" />
+  <script type="module" src="/src/js/common.js"></script>
+  <script type="module" src="/src/js/calculators.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased">
+
+  <!-- HEADER -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/index.html" class="flex items-center space-x-2.5 group">
+          <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-sm group-hover:bg-blue-700 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+          </div>
+          <span class="text-xl font-bold tracking-tight text-slate-900">Fin<span class="text-blue-600">Calc</span></span>
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-700">
+          <a href="/index.html" class="hover:text-blue-600 transition-colors">Home</a>
+          
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-blue-600 font-semibold py-2">
+              <span>Calculators</span>
+              <svg class="w-4 h-4 text-blue-600 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="absolute left-0 mt-1 w-64 bg-white rounded-xl shadow-lg border border-slate-200 py-2 hidden group-hover:block transition-all z-50">
+              <a href="/profit-margin-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">Profit Margin Calculator</a>
+              <a href="/markup-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">Markup Calculator</a>
+              <a href="/sales-tax-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">VAT / Sales Tax Calculator</a>
+              <a href="/break-even-calculator.html" class="block px-4 py-2 text-xs font-semibold text-blue-600 bg-blue-50">Break-even Calculator</a>
+              <a href="/discount-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">Discount Calculator</a>
+              <a href="/roi-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">ROI Calculator</a>
+            </div>
+          </div>
+
+          <a href="/blog.html" class="hover:text-blue-600 transition-colors">Articles</a>
+          <a href="/about.html" class="hover:text-blue-600 transition-colors">About Us</a>
+          <a href="/contact.html" class="hover:text-blue-600 transition-colors">Contact</a>
+        </nav>
+
+        <div class="flex items-center space-x-3">
+          <div class="flex items-center space-x-1.5 bg-slate-100 rounded-lg px-2.5 py-1 border border-slate-200">
+            <span class="text-xs font-semibold text-slate-500">Currency:</span>
+            <select id="currency-select" class="bg-transparent text-xs font-bold text-slate-800 focus:outline-none cursor-pointer">
+              <option value="$">$ USD</option>
+              <option value="€">€ EUR</option>
+              <option value="£">£ GBP</option>
+              <option value="₹">₹ INR</option>
+              <option value="A$">A$ AUD</option>
+            </select>
+          </div>
+
+          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-2 pb-4 space-y-2">
+      <a href="/index.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Home</a>
+      <div class="pl-3 space-y-1 py-1 border-l-2 border-blue-600 ml-2">
+        <p class="text-xs font-bold uppercase text-slate-400 px-2">Calculators</p>
+        <a href="/profit-margin-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">Profit Margin</a>
+        <a href="/markup-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">Markup</a>
+        <a href="/sales-tax-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">VAT / Sales Tax</a>
+        <a href="/break-even-calculator.html" class="block px-2 py-1 text-sm font-semibold text-blue-600 bg-blue-50 rounded-md">Break-even</a>
+        <a href="/discount-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">Discount</a>
+        <a href="/roi-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">ROI</a>
+      </div>
+      <a href="/blog.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Articles</a>
+      <a href="/about.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">About Us</a>
+      <a href="/contact.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Contact</a>
+    </div>
+  </header>
+
+  <!-- AD UNIT: Header -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <!-- AD UNIT: Header -->
+    <div class="adsense-unit">
+      <span>Header Leaderboard Ad Placeholder</span>
+    </div>
+  </div>
+
+  <main class="flex-1 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+    
+    <nav class="flex items-center space-x-2 text-xs font-medium text-slate-500 mb-4">
+      <a href="/index.html" class="hover:text-blue-600">Home</a>
+      <span>/</span>
+      <span class="text-slate-800">Break-even Calculator</span>
+    </nav>
+
+    <div class="mb-8">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">Break-even Calculator</h1>
+      <p class="text-base text-slate-600">Determine unit sales and revenue dollars needed to achieve zero profit/loss.</p>
+    </div>
+
+    <!-- CALCULATOR CARD -->
+    <div class="calc-card p-6 sm:p-8 mb-8">
+      <div class="flex items-center justify-between pb-4 mb-6 border-b border-slate-100">
+        <div class="flex items-center space-x-2">
+          <div class="w-3 h-3 rounded-full bg-purple-600"></div>
+          <h2 class="text-lg font-bold text-slate-900">Break-Even Point Calculator</h2>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button class="print-calc-btn text-xs font-semibold text-slate-600 hover:text-blue-600 flex items-center space-x-1 px-2.5 py-1 rounded bg-slate-100 border border-slate-200">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+            <span>Print</span>
+          </button>
+          <button class="copy-results-btn text-xs font-semibold text-slate-600 hover:text-blue-600 flex items-center space-x-1 px-2.5 py-1 rounded bg-slate-100 border border-slate-200" data-target="be-results-area">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <div class="lg:col-span-5 space-y-4">
+          <div>
+            <label for="be-fixed" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Total Fixed Costs (Per Period)</label>
+            <div class="relative rounded-lg shadow-xs">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 font-bold text-sm">
+                <span class="curr-symbol">$</span>
+              </div>
+              <input type="number" id="be-fixed" value="5000" step="any" min="0" class="calc-input block w-full pl-8 pr-3 py-2.5 text-base border border-slate-300 rounded-lg font-semibold text-slate-900" placeholder="5000" />
+            </div>
+            <p class="text-xs text-slate-500 mt-1">Rent, salaries, software, insurance.</p>
+          </div>
+
+          <div>
+            <label for="be-variable" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Variable Cost Per Unit</label>
+            <div class="relative rounded-lg shadow-xs">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 font-bold text-sm">
+                <span class="curr-symbol">$</span>
+              </div>
+              <input type="number" id="be-variable" value="15" step="any" min="0" class="calc-input block w-full pl-8 pr-3 py-2.5 text-base border border-slate-300 rounded-lg font-semibold text-slate-900" placeholder="15" />
+            </div>
+            <p class="text-xs text-slate-500 mt-1">Direct materials, unit packaging, shipping.</p>
+          </div>
+
+          <div>
+            <label for="be-price" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Selling Price Per Unit</label>
+            <div class="relative rounded-lg shadow-xs">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 font-bold text-sm">
+                <span class="curr-symbol">$</span>
+              </div>
+              <input type="number" id="be-price" value="40" step="any" min="0" class="calc-input block w-full pl-8 pr-3 py-2.5 text-base border border-slate-300 rounded-lg font-semibold text-slate-900" placeholder="40" />
+            </div>
+            <p class="text-xs text-slate-500 mt-1">Price charged to customer per unit.</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 bg-slate-50 rounded-xl p-5 border border-slate-200 flex flex-col justify-between" id="be-results-area">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-4">Break-Even Summary</span>
+            
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="bg-white p-3.5 rounded-lg border border-slate-200 shadow-2xs">
+                <span class="text-xs text-slate-500 block">Break-Even Sales Volume</span>
+                <span id="res-be-units" class="text-xl font-extrabold text-purple-700">200 units</span>
+              </div>
+
+              <div class="bg-white p-3.5 rounded-lg border border-slate-200 shadow-2xs">
+                <span class="text-xs text-slate-500 block">Break-Even Revenue</span>
+                <span id="res-be-revenue" class="text-xl font-extrabold text-blue-600">$8,000.00</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="bg-white p-3 rounded-lg border border-slate-200">
+                <span class="text-xs text-slate-500 block">Contribution Margin / Unit</span>
+                <span id="res-be-contrib" class="text-sm font-bold text-slate-900">$25.00</span>
+              </div>
+
+              <div class="bg-white p-3 rounded-lg border border-slate-200">
+                <span class="text-xs text-slate-500 block">Contribution Margin Ratio</span>
+                <span id="res-be-ratio" class="text-sm font-bold text-slate-900">62.50%</span>
+              </div>
+            </div>
+
+            <!-- VISUAL BREAK-EVEN GRAPH -->
+            <div class="bg-white p-3 rounded-lg border border-slate-200" id="be-chart-container">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- AD UNIT: In-Content -->
+    <!-- AD UNIT: In-Content -->
+    <div class="adsense-unit">
+      <span>In-Article / Between Calculator & Guide Ad Banner</span>
+    </div>
+
+    <!-- EXPLANATORY ARTICLE -->
+    <article class="article-content bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 my-8 shadow-xs">
+      
+      <h2>What Is Break-Even Analysis?</h2>
+      <p>
+        Break-even analysis is a essential financial calculation used to determine the exact point at which total revenue equals total expenses. Reaching your break-even point means your business is operating at zero profit and zero net loss—every dollar earned beyond this threshold represents pure profit.
+      </p>
+      <p>
+        Analyzing your break-even point is critical when setting price points, launching new product lines, pitching investors, or planning expansion capital.
+      </p>
+
+      <h2>Core Break-Even Formulas</h2>
+      <p>
+        To perform a break-even calculation, you must divide your total overhead fixed costs by the contribution margin earned on each unit sold:
+      </p>
+
+      <div class="formula-box">
+        <strong>Contribution Margin per Unit ($)</strong> = Selling Price per Unit - Variable Cost per Unit<br />
+        <strong>Contribution Margin Ratio (%)</strong> = (Contribution Margin / Selling Price) &times; 100<br /><br />
+        <strong>Break-Even Volume (Units)</strong> = Fixed Costs / Contribution Margin per Unit<br />
+        <strong>Break-Even Revenue ($)</strong> = Break-Even Volume &times; Selling Price per Unit
+      </div>
+
+      <h2>Step-by-Step Worked Example</h2>
+      <div class="example-box">
+        <h4 class="font-bold text-slate-900 mb-2">Example: Artisanal Coffee Roastery</h4>
+        <p class="text-sm text-slate-700 leading-relaxed mb-2">
+          A specialty coffee business roasts 12oz bags of whole bean coffee:
+        </p>
+        <ul class="text-sm text-slate-700 space-y-1 mb-3">
+          <li><strong>Monthly Fixed Costs (Rent, Roaster Lease, Salaries):</strong> $6,000.00</li>
+          <li><strong>Variable Cost per Bag (Green Beans, Valve Bag, Shipping):</strong> $4.00</li>
+          <li><strong>Retail Selling Price per Bag:</strong> $16.00</li>
+        </ul>
+        <div class="text-sm text-slate-800 space-y-1 font-mono bg-white p-3 rounded border border-slate-200">
+          <div>Contribution Margin = $16.00 - $4.00 = $12.00 per bag</div>
+          <div>Break-Even Volume = $6,000.00 / $12.00 = <strong>500 Bags / Month</strong></div>
+          <div>Break-Even Revenue = 500 &times; $16.00 = <strong>$8,000.00 / Month</strong></div>
+        </div>
+      </div>
+
+      <h2>4 Strategies to Lower Your Break-Even Point</h2>
+      <ol>
+        <li><strong>Increase Unit Selling Price:</strong> Raising prices directly boosts your contribution margin per unit, reducing the total unit volume required to break even.</li>
+        <li><strong>Reduce Variable Expenses:</strong> Source lower-cost raw materials or streamline fulfillment to increase the profit kept per unit.</li>
+        <li><strong>Cut Recurring Overhead:</strong> Negotiate commercial rent, automate administrative labor, or convert fixed salaries into variable performance bonuses.</li>
+        <li><strong>Focus on High-Margin Products:</strong> Shift marketing spend toward products with higher contribution ratios to break even faster.</li>
+      </ol>
+
+    </article>
+
+  </main>
+
+  <!-- AD UNIT: Footer -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4 w-full">
+    <!-- AD UNIT: Footer -->
+    <div class="adsense-unit">
+      <span>Footer Banner Ad Placeholder</span>
+    </div>
+  </div>
+
+  <footer class="bg-white border-t border-slate-200 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div class="md:col-span-1">
+          <a href="/index.html" class="flex items-center space-x-2 mb-3">
+            <div class="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-xs">FC</div>
+            <span class="text-lg font-bold text-slate-900">Fin<span class="text-blue-600">Calc</span></span>
+          </a>
+          <p class="text-xs text-slate-500 leading-relaxed mb-4">
+            Free, lightweight financial and business calculator tools designed for fast, accurate decision making.
+          </p>
+          <p class="text-xs text-slate-400">© 2026 FinCalc. All rights reserved.</p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3">Calculators</h4>
+          <ul class="space-y-2 text-xs text-slate-600">
+            <li><a href="/profit-margin-calculator.html" class="hover:text-blue-600">Profit Margin Calculator</a></li>
+            <li><a href="/markup-calculator.html" class="hover:text-blue-600">Markup Calculator</a></li>
+            <li><a href="/sales-tax-calculator.html" class="hover:text-blue-600">VAT / Sales Tax Calculator</a></li>
+            <li><a href="/break-even-calculator.html" class="text-blue-600 font-semibold">Break-even Calculator</a></li>
+            <li><a href="/discount-calculator.html" class="hover:text-blue-600">Discount Calculator</a></li>
+            <li><a href="/roi-calculator.html" class="hover:text-blue-600">ROI Calculator</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3">Resources</h4>
+          <ul class="space-y-2 text-xs text-slate-600">
+            <li><a href="/blog.html" class="hover:text-blue-600">Articles & Guides</a></li>
+            <li><a href="/blog-article-1.html" class="hover:text-blue-600">Margin vs Markup Guide</a></li>
+            <li><a href="/blog-article-2.html" class="hover:text-blue-600">Break-Even Analysis Guide</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3">Company</h4>
+          <ul class="space-y-2 text-xs text-slate-600">
+            <li><a href="/about.html" class="hover:text-blue-600">About Us</a></li>
+            <li><a href="/contact.html" class="hover:text-blue-600">Contact & Support</a></li>
+            <li><a href="/privacy-policy.html" class="hover:text-blue-600">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-100 pt-6 text-center">
+        <p class="text-xs text-slate-400 leading-relaxed max-w-4xl mx-auto">
+          <strong>Disclaimer:</strong> FinCalc provides educational tools and estimations for business planning. Results are derived from user input figures. They do not constitute formal financial, legal, or accounting advice. Always consult a certified accountant or professional financial advisor before making critical business decisions.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

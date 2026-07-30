@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discount Calculator - Calculate Sale Price & Stacked Coupons</title>
+  <meta name="description" content="Free Discount Calculator. Calculate final discounted sale price, total dollars saved, stacked promo codes, and sales tax additions instantly." />
+  <meta name="keywords" content="discount calculator, sale price calculator, percent off calculator, coupon calculator, stacked discounts, savings calculator" />
+  <link rel="stylesheet" href="/src/index.css" />
+  <script type="module" src="/src/js/common.js"></script>
+  <script type="module" src="/src/js/calculators.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased">
+
+  <!-- HEADER -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/index.html" class="flex items-center space-x-2.5 group">
+          <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-sm group-hover:bg-blue-700 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+          </div>
+          <span class="text-xl font-bold tracking-tight text-slate-900">Fin<span class="text-blue-600">Calc</span></span>
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-700">
+          <a href="/index.html" class="hover:text-blue-600 transition-colors">Home</a>
+          
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-blue-600 font-semibold py-2">
+              <span>Calculators</span>
+              <svg class="w-4 h-4 text-blue-600 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="absolute left-0 mt-1 w-64 bg-white rounded-xl shadow-lg border border-slate-200 py-2 hidden group-hover:block transition-all z-50">
+              <a href="/profit-margin-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">Profit Margin Calculator</a>
+              <a href="/markup-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">Markup Calculator</a>
+              <a href="/sales-tax-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">VAT / Sales Tax Calculator</a>
+              <a href="/break-even-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">Break-even Calculator</a>
+              <a href="/discount-calculator.html" class="block px-4 py-2 text-xs font-semibold text-blue-600 bg-blue-50">Discount Calculator</a>
+              <a href="/roi-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">ROI Calculator</a>
+            </div>
+          </div>
+
+          <a href="/blog.html" class="hover:text-blue-600 transition-colors">Articles</a>
+          <a href="/about.html" class="hover:text-blue-600 transition-colors">About Us</a>
+          <a href="/contact.html" class="hover:text-blue-600 transition-colors">Contact</a>
+        </nav>
+
+        <div class="flex items-center space-x-3">
+          <div class="flex items-center space-x-1.5 bg-slate-100 rounded-lg px-2.5 py-1 border border-slate-200">
+            <span class="text-xs font-semibold text-slate-500">Currency:</span>
+            <select id="currency-select" class="bg-transparent text-xs font-bold text-slate-800 focus:outline-none cursor-pointer">
+              <option value="$">$ USD</option>
+              <option value="€">€ EUR</option>
+              <option value="£">£ GBP</option>
+              <option value="₹">₹ INR</option>
+              <option value="A$">A$ AUD</option>
+            </select>
+          </div>
+
+          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-2 pb-4 space-y-2">
+      <a href="/index.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Home</a>
+      <div class="pl-3 space-y-1 py-1 border-l-2 border-blue-600 ml-2">
+        <p class="text-xs font-bold uppercase text-slate-400 px-2">Calculators</p>
+        <a href="/profit-margin-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">Profit Margin</a>
+        <a href="/markup-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">Markup</a>
+        <a href="/sales-tax-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">VAT / Sales Tax</a>
+        <a href="/break-even-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">Break-even</a>
+        <a href="/discount-calculator.html" class="block px-2 py-1 text-sm font-semibold text-blue-600 bg-blue-50 rounded-md">Discount</a>
+        <a href="/roi-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">ROI</a>
+      </div>
+      <a href="/blog.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Articles</a>
+      <a href="/about.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">About Us</a>
+      <a href="/contact.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Contact</a>
+    </div>
+  </header>
+
+  <!-- AD UNIT: Header -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <!-- AD UNIT: Header -->
+    <div class="adsense-unit">
+      <span>Header Leaderboard Ad Placeholder</span>
+    </div>
+  </div>
+
+  <main class="flex-1 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+    
+    <nav class="flex items-center space-x-2 text-xs font-medium text-slate-500 mb-4">
+      <a href="/index.html" class="hover:text-blue-600">Home</a>
+      <span>/</span>
+      <span class="text-slate-800">Discount Calculator</span>
+    </nav>
+
+    <div class="mb-8">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">Discount Calculator</h1>
+      <p class="text-base text-slate-600">Calculate final sale prices, total dollars saved, and stacked coupons.</p>
+    </div>
+
+    <!-- CALCULATOR CARD -->
+    <div class="calc-card p-6 sm:p-8 mb-8">
+      <div class="flex items-center justify-between pb-4 mb-6 border-b border-slate-100">
+        <div class="flex items-center space-x-2">
+          <div class="w-3 h-3 rounded-full bg-rose-500"></div>
+          <h2 class="text-lg font-bold text-slate-900">Sale & Coupon Calculator</h2>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button class="print-calc-btn text-xs font-semibold text-slate-600 hover:text-blue-600 flex items-center space-x-1 px-2.5 py-1 rounded bg-slate-100 border border-slate-200">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+            <span>Print</span>
+          </button>
+          <button class="copy-results-btn text-xs font-semibold text-slate-600 hover:text-blue-600 flex items-center space-x-1 px-2.5 py-1 rounded bg-slate-100 border border-slate-200" data-target="dc-results-area">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Presets -->
+      <div class="mb-6">
+        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">Popular Discount Presets:</span>
+        <div class="flex flex-wrap gap-2">
+          <button class="dc-preset-btn text-xs font-medium px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-blue-50 hover:text-blue-600 border border-slate-200" data-pct="10">10% Off</button>
+          <button class="dc-preset-btn text-xs font-medium px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-blue-50 hover:text-blue-600 border border-slate-200" data-pct="20">20% Off</button>
+          <button class="dc-preset-btn text-xs font-medium px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-blue-50 hover:text-blue-600 border border-slate-200" data-pct="25">25% Off</button>
+          <button class="dc-preset-btn text-xs font-medium px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-blue-50 hover:text-blue-600 border border-slate-200" data-pct="30">30% Off</button>
+          <button class="dc-preset-btn text-xs font-medium px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-blue-50 hover:text-blue-600 border border-slate-200" data-pct="50">50% Off</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div class="space-y-4">
+          <div>
+            <label for="dc-orig" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Original Price</label>
+            <div class="relative rounded-lg shadow-xs">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 font-bold text-sm">
+                <span class="curr-symbol">$</span>
+              </div>
+              <input type="number" id="dc-orig" value="120" step="any" min="0" class="calc-input block w-full pl-8 pr-3 py-2.5 text-base border border-slate-300 rounded-lg font-semibold text-slate-900" placeholder="120" />
+            </div>
+          </div>
+
+          <div>
+            <label for="dc-disc1" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Primary Discount (%)</label>
+            <div class="relative rounded-lg shadow-xs">
+              <input type="number" id="dc-disc1" value="25" step="any" min="0" max="100" class="calc-input block w-full px-3 py-2.5 text-base border border-slate-300 rounded-lg font-semibold text-slate-900 pr-8" placeholder="25" />
+              <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400 font-bold text-sm">%</div>
+            </div>
+          </div>
+
+          <div>
+            <label for="dc-disc2" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Additional Stacked Coupon (%) <span class="font-normal text-slate-400">(Optional)</span></label>
+            <div class="relative rounded-lg shadow-xs">
+              <input type="number" id="dc-disc2" value="10" step="any" min="0" max="100" class="calc-input block w-full px-3 py-2.5 text-base border border-slate-300 rounded-lg font-semibold text-slate-900 pr-8" placeholder="0" />
+              <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400 font-bold text-sm">%</div>
+            </div>
+          </div>
+
+          <div>
+            <label for="dc-tax" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Sales Tax (%) <span class="font-normal text-slate-400">(Optional)</span></label>
+            <div class="relative rounded-lg shadow-xs">
+              <input type="number" id="dc-tax" value="8" step="any" min="0" class="calc-input block w-full px-3 py-2.5 text-base border border-slate-300 rounded-lg font-semibold text-slate-900 pr-8" placeholder="0" />
+              <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400 font-bold text-sm">%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 flex flex-col justify-between" id="dc-results-area">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-4">Savings Summary</span>
+            
+            <div class="bg-white p-4 rounded-lg border border-slate-200 mb-4 shadow-2xs">
+              <span class="text-xs text-slate-500 block mb-1">Final Total Price</span>
+              <span id="res-dc-final-price" class="text-2xl font-extrabold text-rose-600">$87.48</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="bg-white p-3 rounded-lg border border-slate-200">
+                <span class="text-xs text-slate-500 block">Total Dollars Saved</span>
+                <span id="res-dc-savings" class="text-lg font-bold text-emerald-600">$39.00</span>
+              </div>
+
+              <div class="bg-white p-3 rounded-lg border border-slate-200">
+                <span class="text-xs text-slate-500 block">Effective Discount</span>
+                <span id="res-dc-effective-pct" class="text-lg font-bold text-slate-900">32.50%</span>
+              </div>
+            </div>
+
+            <div class="bg-white p-3 rounded-lg border border-slate-200 flex justify-between items-center text-xs">
+              <span class="text-slate-500 font-medium">Sales Tax Added</span>
+              <span id="res-dc-tax" class="font-bold text-slate-800">$6.48</span>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-slate-200 text-xs text-slate-500">
+            <span>💡 <strong>Note:</strong> When stacking 25% + 10% discounts, the secondary 10% coupon applies to the reduced price, yielding an effective 32.5% total savings.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- AD UNIT: In-Content -->
+    <!-- AD UNIT: In-Content -->
+    <div class="adsense-unit">
+      <span>In-Article / Between Calculator & Guide Ad Banner</span>
+    </div>
+
+    <!-- EXPLANATORY ARTICLE -->
+    <article class="article-content bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 my-8 shadow-xs">
+      
+      <h2>How Discounts Work and Why They Boost Sales</h2>
+      <p>
+        Offering targeted promotional discounts, seasonal sales, and coupon codes is one of the most reliable strategies for e-commerce stores and brick-and-mortar retailers to acquire new customers, clear seasonal inventory, and raise average order values (AOV).
+      </p>
+      <p>
+        However, failing to calculate the compound impact of multiple stacked discounts can severely erode profit margins. Understanding discount mathematics ensures promotional offers remain lucrative.
+      </p>
+
+      <h2>Single vs Stacked Discount Formulas</h2>
+
+      <div class="formula-box">
+        <strong>Single Discount ($)</strong> = Original Price &times; (Discount % / 100)<br />
+        <strong>Sale Price ($)</strong> = Original Price - Single Discount<br /><br />
+        <strong>Stacked Discount Sale Price ($)</strong> = Original Price &times; (1 - Discount1 %) &times; (1 - Discount2 %)<br />
+        <strong>Effective Total Discount (%)</strong> = [ (Original Price - Final Sale Price) / Original Price ] &times; 100
+      </div>
+
+      <h2>Step-by-Step Worked Example: Black Friday Stacked Coupon</h2>
+      <div class="example-box">
+        <h4 class="font-bold text-slate-900 mb-2">Example: Promotional Apparel Purchase</h4>
+        <p class="text-sm text-slate-700 leading-relaxed mb-2">
+          A shopper purchases a winter parka with an original sticker price of $200.00 during a Black Friday sale:
+        </p>
+        <ul class="text-sm text-slate-700 space-y-1 mb-3">
+          <li><strong>Primary Storewide Sale:</strong> 30% Off</li>
+          <li><strong>VIP Promo Coupon:</strong> Additional 15% Off</li>
+          <li><strong>Local Sales Tax:</strong> 7%</li>
+        </ul>
+        <div class="text-sm text-slate-800 space-y-1 font-mono bg-white p-3 rounded border border-slate-200">
+          <div>Price after 30% Storewide Sale = $200.00 &times; (1 - 0.30) = $140.00</div>
+          <div>Price after 15% VIP Coupon = $140.00 &times; (1 - 0.15) = $119.00</div>
+          <div>Total Dollars Saved = $200.00 - $119.00 = <strong>$81.00 (40.5% effective savings)</strong></div>
+          <div>Final Checkout Total with 7% Tax = $119.00 &times; 1.07 = <strong>$127.33</strong></div>
+        </div>
+      </div>
+
+      <h2>Smart Discounting Rules for Retailers</h2>
+      <ol>
+        <li><strong>Set Minimum Cart Spending Thresholds:</strong> Tie high percentage discounts (e.g. 20% off) to minimum order values (e.g., "Spend $100 or more") to preserve net order margin.</li>
+        <li><strong>Beware of Coupon Stacking Glitches:</strong> Ensure your e-commerce checkout software prevents unintended combinations of clearance items with global percentage coupons.</li>
+        <li><strong>Use Dollar Off vs Percentage Off Wisely:</strong> For items priced under $100, percentage discounts (e.g., "25% off") sound more appealing; for items over $100, flat dollar savings (e.g., "$50 off") drive higher conversions.</li>
+      </ol>
+
+    </article>
+
+  </main>
+
+  <!-- AD UNIT: Footer -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4 w-full">
+    <!-- AD UNIT: Footer -->
+    <div class="adsense-unit">
+      <span>Footer Banner Ad Placeholder</span>
+    </div>
+  </div>
+
+  <footer class="bg-white border-t border-slate-200 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div class="md:col-span-1">
+          <a href="/index.html" class="flex items-center space-x-2 mb-3">
+            <div class="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-xs">FC</div>
+            <span class="text-lg font-bold text-slate-900">Fin<span class="text-blue-600">Calc</span></span>
+          </a>
+          <p class="text-xs text-slate-500 leading-relaxed mb-4">
+            Free, lightweight financial and business calculator tools designed for fast, accurate decision making.
+          </p>
+          <p class="text-xs text-slate-400">© 2026 FinCalc. All rights reserved.</p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3">Calculators</h4>
+          <ul class="space-y-2 text-xs text-slate-600">
+            <li><a href="/profit-margin-calculator.html" class="hover:text-blue-600">Profit Margin Calculator</a></li>
+            <li><a href="/markup-calculator.html" class="hover:text-blue-600">Markup Calculator</a></li>
+            <li><a href="/sales-tax-calculator.html" class="hover:text-blue-600">VAT / Sales Tax Calculator</a></li>
+            <li><a href="/break-even-calculator.html" class="hover:text-blue-600">Break-even Calculator</a></li>
+            <li><a href="/discount-calculator.html" class="text-blue-600 font-semibold">Discount Calculator</a></li>
+            <li><a href="/roi-calculator.html" class="hover:text-blue-600">ROI Calculator</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3">Resources</h4>
+          <ul class="space-y-2 text-xs text-slate-600">
+            <li><a href="/blog.html" class="hover:text-blue-600">Articles & Guides</a></li>
+            <li><a href="/blog-article-1.html" class="hover:text-blue-600">Margin vs Markup Guide</a></li>
+            <li><a href="/blog-article-2.html" class="hover:text-blue-600">Break-Even Analysis Guide</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3">Company</h4>
+          <ul class="space-y-2 text-xs text-slate-600">
+            <li><a href="/about.html" class="hover:text-blue-600">About Us</a></li>
+            <li><a href="/contact.html" class="hover:text-blue-600">Contact & Support</a></li>
+            <li><a href="/privacy-policy.html" class="hover:text-blue-600">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-100 pt-6 text-center">
+        <p class="text-xs text-slate-400 leading-relaxed max-w-4xl mx-auto">
+          <strong>Disclaimer:</strong> FinCalc provides educational tools and estimations for business planning. Results are derived from user input figures. They do not constitute formal financial, legal, or accounting advice. Always consult a certified accountant or professional financial advisor before making critical business decisions.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

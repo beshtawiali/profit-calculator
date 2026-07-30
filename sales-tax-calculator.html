@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VAT & Sales Tax Calculator - Add or Remove Tax Online</title>
+  <meta name="description" content="Free VAT & Sales Tax Calculator. Calculate tax amounts, net prices, and tax-inclusive gross amounts for US Sales Tax, UK VAT, GST, and international tax rates." />
+  <meta name="keywords" content="sales tax calculator, vat calculator, gst calculator, reverse tax calculator, extract vat, add sales tax, tax inclusive price" />
+  <link rel="stylesheet" href="/src/index.css" />
+  <script type="module" src="/src/js/common.js"></script>
+  <script type="module" src="/src/js/calculators.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased">
+
+  <!-- HEADER -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/index.html" class="flex items-center space-x-2.5 group">
+          <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-sm group-hover:bg-blue-700 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+          </div>
+          <span class="text-xl font-bold tracking-tight text-slate-900">Fin<span class="text-blue-600">Calc</span></span>
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-700">
+          <a href="/index.html" class="hover:text-blue-600 transition-colors">Home</a>
+          
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-blue-600 font-semibold py-2">
+              <span>Calculators</span>
+              <svg class="w-4 h-4 text-blue-600 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="absolute left-0 mt-1 w-64 bg-white rounded-xl shadow-lg border border-slate-200 py-2 hidden group-hover:block transition-all z-50">
+              <a href="/profit-margin-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">Profit Margin Calculator</a>
+              <a href="/markup-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">Markup Calculator</a>
+              <a href="/sales-tax-calculator.html" class="block px-4 py-2 text-xs font-semibold text-blue-600 bg-blue-50">VAT / Sales Tax Calculator</a>
+              <a href="/break-even-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">Break-even Calculator</a>
+              <a href="/discount-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">Discount Calculator</a>
+              <a href="/roi-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">ROI Calculator</a>
+            </div>
+          </div>
+
+          <a href="/blog.html" class="hover:text-blue-600 transition-colors">Articles</a>
+          <a href="/about.html" class="hover:text-blue-600 transition-colors">About Us</a>
+          <a href="/contact.html" class="hover:text-blue-600 transition-colors">Contact</a>
+        </nav>
+
+        <div class="flex items-center space-x-3">
+          <div class="flex items-center space-x-1.5 bg-slate-100 rounded-lg px-2.5 py-1 border border-slate-200">
+            <span class="text-xs font-semibold text-slate-500">Currency:</span>
+            <select id="currency-select" class="bg-transparent text-xs font-bold text-slate-800 focus:outline-none cursor-pointer">
+              <option value="$">$ USD</option>
+              <option value="€">€ EUR</option>
+              <option value="£">£ GBP</option>
+              <option value="₹">₹ INR</option>
+              <option value="A$">A$ AUD</option>
+            </select>
+          </div>
+
+          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-2 pb-4 space-y-2">
+      <a href="/index.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Home</a>
+      <div class="pl-3 space-y-1 py-1 border-l-2 border-blue-600 ml-2">
+        <p class="text-xs font-bold uppercase text-slate-400 px-2">Calculators</p>
+        <a href="/profit-margin-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">Profit Margin</a>
+        <a href="/markup-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">Markup</a>
+        <a href="/sales-tax-calculator.html" class="block px-2 py-1 text-sm font-semibold text-blue-600 bg-blue-50 rounded-md">VAT / Sales Tax</a>
+        <a href="/break-even-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">Break-even</a>
+        <a href="/discount-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">Discount</a>
+        <a href="/roi-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">ROI</a>
+      </div>
+      <a href="/blog.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Articles</a>
+      <a href="/about.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">About Us</a>
+      <a href="/contact.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Contact</a>
+    </div>
+  </header>
+
+  <!-- AD UNIT: Header -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <!-- AD UNIT: Header -->
+    <div class="adsense-unit">
+      <span>Header Leaderboard Ad Placeholder</span>
+    </div>
+  </div>
+
+  <main class="flex-1 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+    
+    <nav class="flex items-center space-x-2 text-xs font-medium text-slate-500 mb-4">
+      <a href="/index.html" class="hover:text-blue-600">Home</a>
+      <span>/</span>
+      <span class="text-slate-800">VAT / Sales Tax Calculator</span>
+    </nav>
+
+    <div class="mb-8">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">VAT / Sales Tax Calculator</h1>
+      <p class="text-base text-slate-600">Add sales tax or reverse-calculate tax-inclusive invoice totals.</p>
+    </div>
+
+    <!-- CALCULATOR CARD -->
+    <div class="calc-card p-6 sm:p-8 mb-8">
+      <div class="flex items-center justify-between pb-4 mb-6 border-b border-slate-100">
+        <div class="flex items-center space-x-2">
+          <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+          <h2 class="text-lg font-bold text-slate-900">Sales Tax & VAT Calculator</h2>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button class="print-calc-btn text-xs font-semibold text-slate-600 hover:text-blue-600 flex items-center space-x-1 px-2.5 py-1 rounded bg-slate-100 border border-slate-200">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+            <span>Print</span>
+          </button>
+          <button class="copy-results-btn text-xs font-semibold text-slate-600 hover:text-blue-600 flex items-center space-x-1 px-2.5 py-1 rounded bg-slate-100 border border-slate-200" data-target="st-results-area">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+            <span>Copy</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Presets -->
+      <div class="mb-6">
+        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">Common Tax Rate Presets:</span>
+        <div class="flex flex-wrap gap-2">
+          <button class="st-preset-btn text-xs font-medium px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-blue-50 hover:text-blue-600 border border-slate-200" data-rate="5">
+            5% (US Standard Base)
+          </button>
+          <button class="st-preset-btn text-xs font-medium px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-blue-50 hover:text-blue-600 border border-slate-200" data-rate="8.875">
+            8.875% (NYC Sales Tax)
+          </button>
+          <button class="st-preset-btn text-xs font-medium px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-blue-50 hover:text-blue-600 border border-slate-200" data-rate="10">
+            10% (GST)
+          </button>
+          <button class="st-preset-btn text-xs font-medium px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-blue-50 hover:text-blue-600 border border-slate-200" data-rate="20">
+            20% (UK Standard VAT)
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div class="space-y-4">
+          <div>
+            <label for="st-mode" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Calculation Mode</label>
+            <select id="st-mode" class="calc-input block w-full px-3 py-2.5 text-sm border border-slate-300 rounded-lg font-semibold text-slate-900">
+              <option value="add">Add Tax to Net Amount (Net &rarr; Gross)</option>
+              <option value="extract">Remove / Extract Tax from Total (Gross &rarr; Net)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="st-amount" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Amount</label>
+            <div class="relative rounded-lg shadow-xs">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 font-bold text-sm">
+                <span class="curr-symbol">$</span>
+              </div>
+              <input type="number" id="st-amount" value="100" step="any" min="0" class="calc-input block w-full pl-8 pr-3 py-2.5 text-base border border-slate-300 rounded-lg font-semibold text-slate-900" placeholder="0.00" />
+            </div>
+          </div>
+
+          <div>
+            <label for="st-rate" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Tax Rate (%)</label>
+            <div class="relative rounded-lg shadow-xs">
+              <input type="number" id="st-rate" value="20" step="any" min="0" class="calc-input block w-full px-3 py-2.5 text-base border border-slate-300 rounded-lg font-semibold text-slate-900 pr-8" placeholder="20" />
+              <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400 font-bold text-sm">%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 flex flex-col justify-between" id="st-results-area">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-4">Invoice Summary</span>
+            
+            <div class="space-y-3 mb-4">
+              <div class="bg-white p-3 rounded-lg border border-slate-200 flex justify-between items-center">
+                <span class="text-xs text-slate-500 font-medium">Net Price (Excl. Tax)</span>
+                <span id="res-st-net" class="text-base font-bold text-slate-800">$100.00</span>
+              </div>
+
+              <div class="bg-white p-3 rounded-lg border border-slate-200 flex justify-between items-center">
+                <span class="text-xs text-slate-500 font-medium">Tax Amount</span>
+                <span id="res-st-tax" class="text-base font-bold text-amber-600">$20.00</span>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg border border-slate-200 flex justify-between items-center shadow-2xs">
+                <span class="text-sm text-slate-900 font-bold">Total Gross Price (Incl. Tax)</span>
+                <span id="res-st-gross" class="text-xl font-extrabold text-blue-600">$120.00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-slate-200 text-xs text-slate-500">
+            <span>💡 <strong>Tip:</strong> When extracting 20% VAT from $120.00 total, the tax amount is $20.00 (not $24.00), because tax is computed on the net base.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- AD UNIT: In-Content -->
+    <!-- AD UNIT: In-Content -->
+    <div class="adsense-unit">
+      <span>In-Article / Between Calculator & Guide Ad Banner</span>
+    </div>
+
+    <!-- EXPLANATORY ARTICLE -->
+    <article class="article-content bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 my-8 shadow-xs">
+      
+      <h2>Understanding Sales Tax and Value-Added Tax (VAT)</h2>
+      <p>
+        Sales Tax, Goods and Services Tax (GST), and Value-Added Tax (VAT) are consumption taxes levied by national, state, or municipal governments on retail sales of goods and services. While they share the goal of raising public revenue, their implementation differs significantly:
+      </p>
+      <ul>
+        <li><strong>Sales Tax (e.g. United States):</strong> A single-stage tax assessed strictly at the final point of purchase by the end consumer.</li>
+        <li><strong>VAT / GST (e.g. UK, EU, Canada, Australia):</strong> A multi-stage tax collected incrementally at each production stage, where businesses deduct input VAT paid against output VAT collected.</li>
+      </ul>
+
+      <h2>Mathematical Tax Formulas</h2>
+
+      <div class="formula-box">
+        <strong>Adding Tax (Net &rarr; Gross):</strong><br />
+        Tax Amount = Net Amount &times; (Tax Rate / 100)<br />
+        Gross Total = Net Amount + Tax Amount = Net Amount &times; (1 + Tax Rate / 100)<br /><br />
+        <strong>Extracting Tax (Gross &rarr; Net):</strong><br />
+        Net Amount = Gross Total / (1 + Tax Rate / 100)<br />
+        Tax Amount = Gross Total - Net Amount
+      </div>
+
+      <h2>Step-by-Step Worked Example</h2>
+      <div class="example-box">
+        <h4 class="font-bold text-slate-900 mb-2">Example: B2B Software Consulting Invoice</h4>
+        <p class="text-sm text-slate-700 leading-relaxed mb-2">
+          A consultancy issues a B2B invoice inclusive of 20% UK VAT with a total paid amount of $1,500.00:
+        </p>
+        <div class="text-sm text-slate-800 space-y-1 font-mono bg-white p-3 rounded border border-slate-200">
+          <div>Net Base Price = $1,500.00 / (1 + 0.20) = $1,500.00 / 1.20 = <strong>$1,250.00</strong></div>
+          <div>Extracted VAT Amount = $1,500.00 - $1,250.00 = <strong>$250.00</strong></div>
+        </div>
+      </div>
+
+      <h2>3 Tax Compliance Tips for Business Owners</h2>
+      <ol>
+        <li><strong>Always Verify Combined Rates:</strong> In the US, state, county, and local city tax rates combine together. Ensure you charge the accurate destination tax rate.</li>
+        <li><strong>Keep Clear Tax-Exclusive Invoices:</strong> B2B customers frequently require itemized invoices listing net prices and tax amounts separately for tax credit filing.</li>
+        <li><strong>Separate Tax Funds Immediately:</strong> Sales tax collected from customers belongs to the tax authority. Keep collected tax in a separate reserve account to prevent cash flow strain at filing time.</li>
+      </ol>
+
+    </article>
+
+  </main>
+
+  <!-- AD UNIT: Footer -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4 w-full">
+    <!-- AD UNIT: Footer -->
+    <div class="adsense-unit">
+      <span>Footer Banner Ad Placeholder</span>
+    </div>
+  </div>
+
+  <footer class="bg-white border-t border-slate-200 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div class="md:col-span-1">
+          <a href="/index.html" class="flex items-center space-x-2 mb-3">
+            <div class="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-xs">FC</div>
+            <span class="text-lg font-bold text-slate-900">Fin<span class="text-blue-600">Calc</span></span>
+          </a>
+          <p class="text-xs text-slate-500 leading-relaxed mb-4">
+            Free, lightweight financial and business calculator tools designed for fast, accurate decision making.
+          </p>
+          <p class="text-xs text-slate-400">© 2026 FinCalc. All rights reserved.</p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3">Calculators</h4>
+          <ul class="space-y-2 text-xs text-slate-600">
+            <li><a href="/profit-margin-calculator.html" class="hover:text-blue-600">Profit Margin Calculator</a></li>
+            <li><a href="/markup-calculator.html" class="hover:text-blue-600">Markup Calculator</a></li>
+            <li><a href="/sales-tax-calculator.html" class="text-blue-600 font-semibold">VAT / Sales Tax Calculator</a></li>
+            <li><a href="/break-even-calculator.html" class="hover:text-blue-600">Break-even Calculator</a></li>
+            <li><a href="/discount-calculator.html" class="hover:text-blue-600">Discount Calculator</a></li>
+            <li><a href="/roi-calculator.html" class="hover:text-blue-600">ROI Calculator</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3">Resources</h4>
+          <ul class="space-y-2 text-xs text-slate-600">
+            <li><a href="/blog.html" class="hover:text-blue-600">Articles & Guides</a></li>
+            <li><a href="/blog-article-1.html" class="hover:text-blue-600">Margin vs Markup Guide</a></li>
+            <li><a href="/blog-article-2.html" class="hover:text-blue-600">Break-Even Analysis Guide</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3">Company</h4>
+          <ul class="space-y-2 text-xs text-slate-600">
+            <li><a href="/about.html" class="hover:text-blue-600">About Us</a></li>
+            <li><a href="/contact.html" class="hover:text-blue-600">Contact & Support</a></li>
+            <li><a href="/privacy-policy.html" class="hover:text-blue-600">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-100 pt-6 text-center">
+        <p class="text-xs text-slate-400 leading-relaxed max-w-4xl mx-auto">
+          <strong>Disclaimer:</strong> FinCalc provides educational tools and estimations for business planning. Results are derived from user input figures. They do not constitute formal financial, legal, or accounting advice. Always consult a certified accountant or professional financial advisor before making critical business decisions.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
