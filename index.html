@@ -3,98 +3,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FinCalc - Free Business & Financial Calculator Tools</title>
-  <meta name="description" content="Free online business calculators for profit margin, markup, sales tax, break-even analysis, discounts, and ROI. Fast, accurate, and simple financial tools." />
-  <meta name="keywords" content="financial calculator, business tools, profit margin calculator, markup calculator, break-even calculator, ROI calculator, sales tax calculator, discount calculator" />
+  <title>MarginWize Financial & Business Calculators</title>
+  <meta name="description" content="Free online business calculators for profit margin, markup, sales tax, break-even analysis, discounts, and ROI. Fast, accurate, and private financial tools." />
+  <meta name="keywords" content="MarginWize, financial calculator, business tools, profit margin calculator, markup calculator, break-even calculator, ROI calculator, sales tax calculator, discount calculator" />
+  <link rel="canonical" href="https://marginwize.com/index.html" />
+  <meta name="theme-color" content="#2563eb" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="MarginWize" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="MarginWize Financial & Business Calculators" />
+  <meta property="og:description" content="Free online business calculators for profit margin, markup, sales tax, break-even analysis, discounts, and ROI. Pick a tool. Type your numbers. See the answer — live." />
+  <meta property="og:url" content="https://marginwize.com/index.html" />
+  <meta property="og:image" content="https://marginwize.com/og/home.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MarginWize Financial & Business Calculators" />
+  <meta name="twitter:description" content="Free online business calculators for profit margin, markup, sales tax, break-even analysis, discounts, and ROI. Pick a tool. Type your numbers. See the answer — live." />
+  <meta name="twitter:image" content="https://marginwize.com/og/home.png" />
+
   <link rel="stylesheet" href="/src/index.css" />
   <script type="module" src="/src/js/common.js"></script>
 </head>
-<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased">
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 min-h-screen flex flex-col antialiased">
 
   <!-- NAVIGATION HEADER -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
+  <header class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-40 shadow-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <!-- Brand Logo -->
         <a href="/index.html" class="flex items-center space-x-2.5 group">
-          <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-sm group-hover:bg-blue-700 transition-colors">
+          <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-xs group-hover:bg-blue-700 transition-colors">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
             </svg>
           </div>
-          <span class="text-xl font-bold tracking-tight text-slate-900">Fin<span class="text-blue-600">Calc</span></span>
+          <span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Margin<span class="text-blue-600 dark:text-blue-400">Wize</span></span>
         </a>
 
         <!-- Desktop Navigation Links -->
-        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-700">
-          <a href="/index.html" class="text-blue-600 font-semibold">Home</a>
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-700 dark:text-slate-200">
+          <a href="/index.html" class="text-blue-600 dark:text-blue-400 font-semibold">Home</a>
           
           <!-- Dropdown for Calculators -->
           <div class="relative group">
-            <button class="flex items-center space-x-1 hover:text-blue-600 transition-colors py-2">
+            <button class="flex items-center space-x-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2">
               <span>Calculators</span>
-              <svg class="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-            <div class="absolute left-0 mt-1 w-64 bg-white rounded-xl shadow-lg border border-slate-200 py-2 hidden group-hover:block transition-all z-50">
-              <a href="/profit-margin-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">Profit Margin Calculator</a>
-              <a href="/markup-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">Markup Calculator</a>
-              <a href="/sales-tax-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">VAT / Sales Tax Calculator</a>
-              <a href="/break-even-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">Break-even Calculator</a>
-              <a href="/discount-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">Discount Calculator</a>
-              <a href="/roi-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 hover:text-blue-600">ROI Calculator</a>
+            <div class="absolute left-0 mt-1 w-64 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 py-2 hidden group-hover:block transition-all z-50">
+              <a href="/profit-margin-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400">Profit Margin Calculator</a>
+              <a href="/markup-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400">Markup Calculator</a>
+              <a href="/sales-tax-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400">VAT / Sales Tax Calculator</a>
+              <a href="/break-even-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400">Break-even Calculator</a>
+              <a href="/discount-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400">Discount Calculator</a>
+              <a href="/roi-calculator.html" class="block px-4 py-2 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400">ROI Calculator</a>
             </div>
           </div>
 
-          <a href="/blog.html" class="hover:text-blue-600 transition-colors">Articles</a>
-          <a href="/about.html" class="hover:text-blue-600 transition-colors">About Us</a>
-          <a href="/contact.html" class="hover:text-blue-600 transition-colors">Contact</a>
+          <a href="/blog.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Articles</a>
+          <a href="/about.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About Us</a>
+          <a href="/contact.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
         </nav>
 
-        <!-- Currency Selector & Mobile Menu Toggle -->
-        <div class="flex items-center space-x-3">
-          <div class="flex items-center space-x-1.5 bg-slate-100 rounded-lg px-2.5 py-1 border border-slate-200">
-            <span class="text-xs font-semibold text-slate-500">Currency:</span>
-            <select id="currency-select" class="bg-transparent text-xs font-bold text-slate-800 focus:outline-none cursor-pointer">
-              <option value="$">$ USD</option>
-              <option value="€">€ EUR</option>
-              <option value="£">£ GBP</option>
-              <option value="₹">₹ INR</option>
-              <option value="A$">A$ AUD</option>
+        <!-- Currency Selector, Theme Toggle & Mobile Menu -->
+        <div class="flex items-center space-x-1.5 sm:space-x-2.5 shrink-0">
+          <div class="flex items-center space-x-1 bg-slate-100 dark:bg-slate-700/60 rounded-lg px-1.5 sm:px-2.5 py-1 border border-slate-200 dark:border-slate-600">
+            <span class="hidden sm:inline text-xs font-semibold text-slate-600 dark:text-slate-300">Currency:</span>
+            <select id="currency-select" aria-label="Select currency" class="bg-transparent text-xs font-bold text-slate-800 dark:text-slate-100 focus:outline-none cursor-pointer">
+              <option value="$" class="dark:bg-slate-800 dark:text-slate-100">$ USD</option>
+              <option value="€" class="dark:bg-slate-800 dark:text-slate-100">€ EUR</option>
+              <option value="£" class="dark:bg-slate-800 dark:text-slate-100">£ GBP</option>
+              <option value="kr" class="dark:bg-slate-800 dark:text-slate-100">kr SEK</option>
+              <option value="₹" class="dark:bg-slate-800 dark:text-slate-100">₹ INR</option>
+              <option value="¥" class="dark:bg-slate-800 dark:text-slate-100">¥ JPY</option>
             </select>
           </div>
 
-          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none" aria-label="Toggle menu">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
+          <button id="theme-toggle-btn" aria-label="Toggle dark mode" class="p-1.5 rounded-lg text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white bg-slate-100 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 focus:outline-none transition-colors shrink-0">
+            <svg id="theme-toggle-dark-icon" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+
+          <button id="mobile-menu-btn" class="md:hidden p-1.5 sm:p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 focus:outline-none shrink-0" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
           </button>
         </div>
       </div>
     </div>
 
     <!-- Mobile Dropdown Menu -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-2 pb-4 space-y-2">
-      <a href="/index.html" class="block px-3 py-2 rounded-lg text-sm font-semibold text-blue-600 bg-blue-50">Home</a>
-      <div class="pl-3 space-y-1 py-1 border-l-2 border-slate-200 ml-2">
-        <p class="text-xs font-bold uppercase text-slate-400 px-2">Calculators</p>
-        <a href="/profit-margin-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">Profit Margin</a>
-        <a href="/markup-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">Markup</a>
-        <a href="/sales-tax-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">VAT / Sales Tax</a>
-        <a href="/break-even-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">Break-even</a>
-        <a href="/discount-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">Discount</a>
-        <a href="/roi-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 hover:text-blue-600">ROI</a>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 pt-2 pb-4 space-y-2">
+      <a href="/index.html" class="block px-3 py-2 rounded-lg text-sm font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/40">Home</a>
+      <div class="pl-3 space-y-1 py-1 border-l-2 border-slate-200 dark:border-slate-700 ml-2">
+        <p class="text-xs font-bold uppercase text-slate-400 dark:text-slate-500 px-2">Calculators</p>
+        <a href="/profit-margin-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400">Profit Margin</a>
+        <a href="/markup-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400">Markup</a>
+        <a href="/sales-tax-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400">VAT / Sales Tax</a>
+        <a href="/break-even-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400">Break-even</a>
+        <a href="/discount-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400">Discount</a>
+        <a href="/roi-calculator.html" class="block px-2 py-1 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400">ROI</a>
       </div>
-      <a href="/blog.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Articles</a>
-      <a href="/about.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">About Us</a>
-      <a href="/contact.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Contact</a>
+      <a href="/blog.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Articles</a>
+      <a href="/about.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">About Us</a>
+      <a href="/contact.html" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700">Contact</a>
     </div>
   </header>
 
   <!-- AD UNIT: Header -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
-    <!-- AD UNIT: Header -->
     <div class="adsense-unit">
       <span>Header Leaderboard Banner Placeholder</span>
     </div>
@@ -106,12 +127,22 @@
       <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-xs font-semibold badge-blue mb-3">
         <span>⚡ 100% Free & Instant Business Tools</span>
       </span>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3">
         Financial & Business Calculators for Smart Decision Making
       </h1>
-      <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-6">
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-6 leading-relaxed">
         Accurate, easy-to-use business calculators for profit margins, markup, break-even thresholds, sales tax, discounts, and ROI. Zero sign-up required.
       </p>
+
+      <!-- Trust Badges -->
+      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-xs font-semibold text-slate-600 dark:text-slate-300 mb-6">
+        <span class="inline-flex items-center space-x-1 bg-white dark:bg-slate-800 px-2.5 py-1 rounded-full border border-slate-200 dark:border-slate-700 shadow-2xs">
+          <span class="text-emerald-600 dark:text-emerald-400">✓</span><span>Free</span>
+        </span>
+        <span class="inline-flex items-center space-x-1 bg-white dark:bg-slate-800 px-2.5 py-1 rounded-full border border-slate-200 dark:border-slate-700 shadow-2xs">
+          <span class="text-emerald-600 dark:text-emerald-400">✓</span><span>No signup</span>
+        </span>
+      </div>
 
       <!-- SEARCH BAR -->
       <div class="relative max-w-xl mx-auto">
@@ -120,15 +151,15 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
         </div>
-        <input type="text" id="tool-search" placeholder="Search calculators (e.g., profit margin, break-even, VAT)..." class="w-full pl-10 pr-4 py-3 bg-white border border-slate-300 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 shadow-xs transition-all" />
+        <input type="text" id="tool-search" placeholder="Search calculators (e.g., profit margin, break-even, VAT)..." class="w-full pl-10 pr-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 dark:focus:ring-blue-900/40 shadow-2xs transition-all" />
       </div>
     </div>
 
     <!-- CALCULATOR TOOLS GRID -->
     <div class="mb-12">
       <div class="flex items-center justify-between mb-6">
-        <h2 class="text-xl font-bold text-slate-900">Featured Business Calculators</h2>
-        <span class="text-xs font-medium text-slate-500">6 Calculators Available</span>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white">Featured Business Calculators</h2>
+        <span class="text-xs font-semibold text-slate-600 dark:text-slate-400">6 Calculators Available</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -136,14 +167,15 @@
         <!-- Profit Margin Calculator Card -->
         <a href="/profit-margin-calculator.html" class="tool-card calc-card calc-card-hover p-6 block group" data-title="Profit Margin Calculator" data-desc="Calculate gross profit, gross margin percentage, net margin, and markup." data-tags="margin gross net cost price profit">
           <div class="flex items-center justify-between mb-4">
-            <div class="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+            <div class="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
+              📊
             </div>
             <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold badge-blue">Popular</span>
           </div>
-          <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">Profit Margin Calculator</h3>
-          <p class="text-sm text-slate-600 leading-relaxed mb-4">Quickly calculate gross profit dollars, gross margin percentage, net profit, and product markup from your revenue and COGS.</p>
-          <div class="flex items-center text-xs font-bold text-blue-600 group-hover:translate-x-1 transition-transform">
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-1">Profit Margin Calculator</h3>
+          <p class="text-xs font-semibold text-blue-600 dark:text-blue-400 mb-2">Calculate gross profit dollars, net margin, and product markup instantly.</p>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">Quickly calculate gross profit dollars, gross margin percentage, net profit, and product markup from your revenue and COGS.</p>
+          <div class="flex items-center text-xs font-bold text-blue-600 dark:text-blue-400 group-hover:translate-x-1 transition-transform">
             <span>Calculate Profit Margin</span>
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </div>
@@ -152,14 +184,15 @@
         <!-- Markup Calculator Card -->
         <a href="/markup-calculator.html" class="tool-card calc-card calc-card-hover p-6 block group" data-title="Markup Calculator" data-desc="Determine product selling price and gross profit based on cost and target markup percentage." data-tags="markup cost selling price profit margin retail">
           <div class="flex items-center justify-between mb-4">
-            <div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"></path></svg>
+            <div class="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+              📈
             </div>
             <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold badge-green">Essential</span>
           </div>
-          <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">Markup Calculator</h3>
-          <p class="text-sm text-slate-600 leading-relaxed mb-4">Determine the ideal retail selling price and profit dollars based on cost price and target markup percentage.</p>
-          <div class="flex items-center text-xs font-bold text-blue-600 group-hover:translate-x-1 transition-transform">
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-1">Markup Calculator</h3>
+          <p class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 mb-2">Determine ideal selling price and profit dollars based on cost markup.</p>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">Determine the ideal retail selling price and profit dollars based on cost price and target markup percentage.</p>
+          <div class="flex items-center text-xs font-bold text-blue-600 dark:text-blue-400 group-hover:translate-x-1 transition-transform">
             <span>Calculate Markup</span>
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </div>
@@ -168,14 +201,15 @@
         <!-- VAT / Sales Tax Calculator Card -->
         <a href="/sales-tax-calculator.html" class="tool-card calc-card calc-card-hover p-6 block group" data-title="VAT / Sales Tax Calculator" data-desc="Add or extract sales tax or value-added tax (VAT) from gross or net invoice amounts." data-tags="sales tax vat gst tax add tax extract tax invoice">
           <div class="flex items-center justify-between mb-4">
-            <div class="w-11 h-11 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center group-hover:bg-amber-600 group-hover:text-white transition-colors">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"></path></svg>
+            <div class="w-11 h-11 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl group-hover:bg-amber-600 group-hover:text-white transition-colors">
+              🧾
             </div>
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">Tax Tool</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800">Tax Tool</span>
           </div>
-          <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">VAT / Sales Tax Calculator</h3>
-          <p class="text-sm text-slate-600 leading-relaxed mb-4">Easily add tax to net amounts or reverse-calculate tax from gross invoice amounts for sales tax and VAT.</p>
-          <div class="flex items-center text-xs font-bold text-blue-600 group-hover:translate-x-1 transition-transform">
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-1">VAT / Sales Tax Calculator</h3>
+          <p class="text-xs font-semibold text-amber-600 dark:text-amber-400 mb-2">Add or extract sales tax and VAT from gross & net invoice amounts.</p>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">Easily add tax to net amounts or reverse-calculate tax from gross invoice amounts for sales tax and VAT.</p>
+          <div class="flex items-center text-xs font-bold text-blue-600 dark:text-blue-400 group-hover:translate-x-1 transition-transform">
             <span>Calculate Sales Tax / VAT</span>
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </div>
@@ -184,14 +218,15 @@
         <!-- Break-even Calculator Card -->
         <a href="/break-even-calculator.html" class="tool-card calc-card calc-card-hover p-6 block group" data-title="Break-even Calculator" data-desc="Find the exact sales volume in units and dollars required to cover fixed and variable costs." data-tags="break even fixed costs variable costs units volume chart">
           <div class="flex items-center justify-between mb-4">
-            <div class="w-11 h-11 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center group-hover:bg-purple-600 group-hover:text-white transition-colors">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            <div class="w-11 h-11 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl group-hover:bg-purple-600 group-hover:text-white transition-colors">
+              ⚖️
             </div>
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-50 text-purple-700 border border-purple-200">Interactive Chart</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800">Interactive Chart</span>
           </div>
-          <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">Break-even Calculator</h3>
-          <p class="text-sm text-slate-600 leading-relaxed mb-4">Discover how many units you must sell to cover fixed overheads and variable production expenses.</p>
-          <div class="flex items-center text-xs font-bold text-blue-600 group-hover:translate-x-1 transition-transform">
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-1">Break-even Calculator</h3>
+          <p class="text-xs font-semibold text-purple-600 dark:text-purple-400 mb-2">Find unit sales volume and revenue required to cover all costs.</p>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">Discover how many units you must sell to cover fixed overheads and variable production expenses.</p>
+          <div class="flex items-center text-xs font-bold text-blue-600 dark:text-blue-400 group-hover:translate-x-1 transition-transform">
             <span>Calculate Break-Even Point</span>
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </div>
@@ -200,14 +235,15 @@
         <!-- Discount Calculator Card -->
         <a href="/discount-calculator.html" class="tool-card calc-card calc-card-hover p-6 block group" data-title="Discount Calculator" data-desc="Calculate final sale prices, total dollars saved, stacked coupons, and tax." data-tags="discount savings promo code sale price offer coupon">
           <div class="flex items-center justify-between mb-4">
-            <div class="w-11 h-11 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center group-hover:bg-rose-600 group-hover:text-white transition-colors">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a2 2 0 10-2 2h2zm0 13C10.832 21 8.5 20 8.5 18c0-.666.283-1.222.75-1.636C9.9 15.82 10.9 15.5 12 15.5c1.1 0 2.1.32 2.75.864.467.414.75.97.75 1.636 0 2-2.332 3-3.5 3z"></path></svg>
+            <div class="w-11 h-11 rounded-xl bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xl group-hover:bg-rose-600 group-hover:text-white transition-colors">
+              🏷️
             </div>
             <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold badge-blue">Quick Savings</span>
           </div>
-          <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">Discount Calculator</h3>
-          <p class="text-sm text-slate-600 leading-relaxed mb-4">Calculate exact final prices, savings, effective overall percentage discounts, and sales tax additions.</p>
-          <div class="flex items-center text-xs font-bold text-blue-600 group-hover:translate-x-1 transition-transform">
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-1">Discount Calculator</h3>
+          <p class="text-xs font-semibold text-rose-600 dark:text-rose-400 mb-2">Calculate final sale price, savings, and stacked discount percentages.</p>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">Calculate exact final prices, savings, effective overall percentage discounts, and sales tax additions.</p>
+          <div class="flex items-center text-xs font-bold text-blue-600 dark:text-blue-400 group-hover:translate-x-1 transition-transform">
             <span>Calculate Discount</span>
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </div>
@@ -216,14 +252,15 @@
         <!-- ROI Calculator Card -->
         <a href="/roi-calculator.html" class="tool-card calc-card calc-card-hover p-6 block group" data-title="ROI Calculator" data-desc="Calculate return on investment percentage, annualized ROI (CAGR), net profit, and investment multiple." data-tags="roi return investment profit cagr yield asset capital">
           <div class="flex items-center justify-between mb-4">
-            <div class="w-11 h-11 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center group-hover:bg-teal-600 group-hover:text-white transition-colors">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div class="w-11 h-11 rounded-xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center text-xl group-hover:bg-teal-600 group-hover:text-white transition-colors">
+              🎯
             </div>
             <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold badge-green">Strategy</span>
           </div>
-          <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">ROI Calculator</h3>
-          <p class="text-sm text-slate-600 leading-relaxed mb-4">Evaluate total percentage yield, annualized return (CAGR), and net profit for marketing, real estate, or stocks.</p>
-          <div class="flex items-center text-xs font-bold text-blue-600 group-hover:translate-x-1 transition-transform">
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-1">ROI Calculator</h3>
+          <p class="text-xs font-semibold text-teal-600 dark:text-teal-400 mb-2">Measure investment returns, annualized CAGR, and capital multiples.</p>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">Evaluate total percentage yield, annualized return (CAGR), and net profit for marketing, real estate, or stocks.</p>
+          <div class="flex items-center text-xs font-bold text-blue-600 dark:text-blue-400 group-hover:translate-x-1 transition-transform">
             <span>Calculate ROI</span>
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </div>
@@ -231,41 +268,40 @@
 
       </div>
 
-      <div id="no-search-results" class="hidden text-center py-12 bg-white rounded-xl border border-slate-200">
-        <p class="text-slate-600 font-medium text-sm">No calculators found matching your search.</p>
-        <p class="text-xs text-slate-400 mt-1">Try searching for terms like "profit", "tax", "markup", or "discount".</p>
+      <div id="no-search-results" class="hidden text-center py-12 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+        <p class="text-slate-600 dark:text-slate-300 font-medium text-sm">No calculators found matching your search.</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Try searching for terms like "profit", "tax", "markup", or "discount".</p>
       </div>
     </div>
 
-    <!-- AD UNIT: In-Content -->
     <!-- AD UNIT: In-Content -->
     <div class="adsense-unit">
       <span>In-Content Ad Banner Placeholder</span>
     </div>
 
-    <!-- WHY CHOOSE FINCALC -->
-    <div class="bg-white rounded-2xl border border-slate-200 p-8 my-10">
+    <!-- WHY CHOOSE MARGINWIZE -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-8 my-10">
       <div class="max-w-3xl">
-        <h2 class="text-2xl font-bold text-slate-900 mb-4">Why Business Owners & Managers Rely on FinCalc</h2>
-        <p class="text-slate-600 leading-relaxed mb-6">
-          Setting accurate prices, estimating tax liabilities, and measuring marketing returns are core requirements for sustainable business growth. FinCalc provides lightweight, reliable calculation tools designed specifically for entrepreneurs, e-commerce managers, accountants, and finance professionals.
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Why Business Owners & Managers Rely on MarginWize</h2>
+        <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+          Setting accurate prices, estimating tax liabilities, and measuring marketing returns are core requirements for sustainable business growth. MarginWize provides lightweight, reliable calculation tools designed specifically for entrepreneurs, e-commerce managers, accountants, and finance professionals.
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-slate-100">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-slate-100 dark:border-slate-700/60">
           <div>
-            <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-sm mb-2">1</div>
-            <h4 class="font-bold text-slate-900 text-sm mb-1">Instant Results</h4>
-            <p class="text-xs text-slate-600 leading-relaxed">Calculations update in real-time as you type, with zero server lag or delayed page reloads.</p>
+            <div class="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-sm mb-2">1</div>
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm mb-1">Instant Results</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Calculations update in real-time as you type, with zero server lag or delayed page reloads.</p>
           </div>
           <div>
-            <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm mb-2">2</div>
-            <h4 class="font-bold text-slate-900 text-sm mb-1">Educational Guides</h4>
-            <p class="text-xs text-slate-600 leading-relaxed">Every calculator includes formulas, worked examples, and practical financial tips to aid understanding.</p>
+            <div class="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm mb-2">2</div>
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm mb-1">Educational Guides</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Every calculator includes formulas, worked examples, and practical financial tips to aid understanding.</p>
           </div>
           <div>
-            <div class="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-sm mb-2">3</div>
-            <h4 class="font-bold text-slate-900 text-sm mb-1">100% Private & Free</h4>
-            <p class="text-xs text-slate-600 leading-relaxed">Your numbers stay entirely inside your browser. We never collect or store your financial input data.</p>
+            <div class="w-8 h-8 rounded-lg bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-sm mb-2">3</div>
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm mb-1">100% Private & Free</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Your numbers stay entirely inside your browser. We never collect or store your financial input data.</p>
           </div>
         </div>
       </div>
@@ -274,23 +310,30 @@
     <!-- LATEST ARTICLES / GUIDES -->
     <div class="my-10">
       <div class="flex items-center justify-between mb-6">
-        <h2 class="text-xl font-bold text-slate-900">Latest Financial Articles & Guides</h2>
-        <a href="/blog.html" class="text-sm font-semibold text-blue-600 hover:underline">View All Articles &rarr;</a>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white">Latest Financial Articles & Guides</h2>
+        <a href="/blog.html" class="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline">View All Articles &rarr;</a>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <a href="/blog-article-1.html" class="calc-card p-6 block group hover:border-blue-300 transition-colors">
-          <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-full inline-block mb-3">Pricing Strategy</span>
-          <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">Margin vs Markup: The #1 Pricing Mistake Small Businesses Make</h3>
-          <p class="text-sm text-slate-600 leading-relaxed mb-4">Confusing profit margin with markup percentage can lead to severe underpricing. Learn the mathematical difference and how to protect your profits.</p>
-          <span class="text-xs font-medium text-slate-400">5 min read • Published July 2026</span>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="/blog-article-1.html" class="calc-card p-6 block group hover:border-blue-300 dark:hover:border-blue-700 transition-colors">
+          <span class="text-xs font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2.5 py-0.5 rounded-full inline-block mb-3">Pricing Strategy</span>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2">Margin vs Markup: The #1 Pricing Mistake Small Businesses Make</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">Confusing profit margin with markup percentage can lead to severe underpricing. Learn the mathematical difference and how to protect your profits.</p>
+          <span class="text-xs font-medium text-slate-500 dark:text-slate-400">5 min read • Published July 2026</span>
         </a>
 
-        <a href="/blog-article-2.html" class="calc-card p-6 block group hover:border-blue-300 transition-colors">
-          <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded-full inline-block mb-3">Financial Planning</span>
-          <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">How to Calculate Your Business Break-Even Point Before Launching</h3>
-          <p class="text-sm text-slate-600 leading-relaxed mb-4">Understanding your break-even threshold prevents cash flow crunches. Read our step-by-step framework for calculating fixed costs and contribution margins.</p>
-          <span class="text-xs font-medium text-slate-400">6 min read • Published July 2026</span>
+        <a href="/blog-article-2.html" class="calc-card p-6 block group hover:border-blue-300 dark:hover:border-blue-700 transition-colors">
+          <span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full inline-block mb-3">Financial Planning</span>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2">How to Calculate Your Business Break-Even Point Before Launching</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">Understanding your break-even threshold prevents cash flow crunches. Read our step-by-step framework for calculating fixed costs and contribution margins.</p>
+          <span class="text-xs font-medium text-slate-500 dark:text-slate-400">6 min read • Published July 2026</span>
+        </a>
+
+        <a href="/blog-article-3.html" class="calc-card p-6 block group hover:border-blue-300 dark:hover:border-blue-700 transition-colors">
+          <span class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-2.5 py-0.5 rounded-full inline-block mb-3">E-Commerce Pricing</span>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2">How to Calculate Profit Margin on eBay Sales</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">Learn how to calculate your true profit margin on eBay sales after fees, shipping, and COGS.</p>
+          <span class="text-xs font-medium text-slate-500 dark:text-slate-400">4 min read • Published July 2026</span>
         </a>
       </div>
     </div>
@@ -298,61 +341,61 @@
 
   <!-- AD UNIT: Footer -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4 w-full">
-    <!-- AD UNIT: Footer -->
     <div class="adsense-unit">
       <span>Footer Banner Ad Placeholder</span>
     </div>
   </div>
 
   <!-- FOOTER -->
-  <footer class="bg-white border-t border-slate-200 mt-auto">
+  <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 mt-auto">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
         <div class="md:col-span-1">
           <a href="/index.html" class="flex items-center space-x-2 mb-3">
-            <div class="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-xs">FC</div>
-            <span class="text-lg font-bold text-slate-900">Fin<span class="text-blue-600">Calc</span></span>
+            <div class="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-xs">MW</div>
+            <span class="text-lg font-bold text-slate-900 dark:text-white">Margin<span class="text-blue-600 dark:text-blue-400">Wize</span></span>
           </a>
-          <p class="text-xs text-slate-500 leading-relaxed mb-4">
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
             Free, lightweight financial and business calculator tools designed for fast, accurate decision making.
           </p>
-          <p class="text-xs text-slate-400">© 2026 FinCalc. All rights reserved.</p>
+          <p class="text-xs text-slate-500 dark:text-slate-500">© 2026 MarginWize. All rights reserved.</p>
         </div>
 
         <div>
-          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3">Calculators</h4>
-          <ul class="space-y-2 text-xs text-slate-600">
-            <li><a href="/profit-margin-calculator.html" class="hover:text-blue-600">Profit Margin Calculator</a></li>
-            <li><a href="/markup-calculator.html" class="hover:text-blue-600">Markup Calculator</a></li>
-            <li><a href="/sales-tax-calculator.html" class="hover:text-blue-600">VAT / Sales Tax Calculator</a></li>
-            <li><a href="/break-even-calculator.html" class="hover:text-blue-600">Break-even Calculator</a></li>
-            <li><a href="/discount-calculator.html" class="hover:text-blue-600">Discount Calculator</a></li>
-            <li><a href="/roi-calculator.html" class="hover:text-blue-600">ROI Calculator</a></li>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-slate-200 mb-3">Calculators</h4>
+          <ul class="space-y-2 text-xs text-slate-600 dark:text-slate-400">
+            <li><a href="/profit-margin-calculator.html" class="hover:text-blue-600 dark:hover:text-blue-400">Profit Margin Calculator</a></li>
+            <li><a href="/markup-calculator.html" class="hover:text-blue-600 dark:hover:text-blue-400">Markup Calculator</a></li>
+            <li><a href="/sales-tax-calculator.html" class="hover:text-blue-600 dark:hover:text-blue-400">VAT / Sales Tax Calculator</a></li>
+            <li><a href="/break-even-calculator.html" class="hover:text-blue-600 dark:hover:text-blue-400">Break-even Calculator</a></li>
+            <li><a href="/discount-calculator.html" class="hover:text-blue-600 dark:hover:text-blue-400">Discount Calculator</a></li>
+            <li><a href="/roi-calculator.html" class="hover:text-blue-600 dark:hover:text-blue-400">ROI Calculator</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3">Resources</h4>
-          <ul class="space-y-2 text-xs text-slate-600">
-            <li><a href="/blog.html" class="hover:text-blue-600">Articles & Guides</a></li>
-            <li><a href="/blog-article-1.html" class="hover:text-blue-600">Margin vs Markup Guide</a></li>
-            <li><a href="/blog-article-2.html" class="hover:text-blue-600">Break-Even Analysis Guide</a></li>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-slate-200 mb-3">Resources</h4>
+          <ul class="space-y-2 text-xs text-slate-600 dark:text-slate-400">
+            <li><a href="/blog.html" class="hover:text-blue-600 dark:hover:text-blue-400">Articles & Guides</a></li>
+            <li><a href="/blog-article-1.html" class="hover:text-blue-600 dark:hover:text-blue-400">Margin vs Markup Guide</a></li>
+            <li><a href="/blog-article-2.html" class="hover:text-blue-600 dark:hover:text-blue-400">Break-Even Analysis Guide</a></li>
+            <li><a href="/blog-article-3.html" class="hover:text-blue-600 dark:hover:text-blue-400">eBay Profit Margin Guide</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3">Company</h4>
-          <ul class="space-y-2 text-xs text-slate-600">
-            <li><a href="/about.html" class="hover:text-blue-600">About Us</a></li>
-            <li><a href="/contact.html" class="hover:text-blue-600">Contact & Support</a></li>
-            <li><a href="/privacy-policy.html" class="hover:text-blue-600">Privacy Policy</a></li>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-slate-200 mb-3">Company</h4>
+          <ul class="space-y-2 text-xs text-slate-600 dark:text-slate-400">
+            <li><a href="/about.html" class="hover:text-blue-600 dark:hover:text-blue-400">About Us</a></li>
+            <li><a href="/contact.html" class="hover:text-blue-600 dark:hover:text-blue-400">Contact & Support</a></li>
+            <li><a href="/privacy-policy.html" class="hover:text-blue-600 dark:hover:text-blue-400">Privacy Policy</a></li>
           </ul>
         </div>
       </div>
 
-      <div class="border-t border-slate-100 pt-6 text-center">
-        <p class="text-xs text-slate-400 leading-relaxed max-w-4xl mx-auto">
-          <strong>Disclaimer:</strong> FinCalc provides educational tools and estimations for business planning. Results are derived from user input figures. They do not constitute formal financial, legal, or accounting advice. Always consult a certified accountant or professional financial advisor before making critical business decisions.
+      <div class="border-t border-slate-100 dark:border-slate-700/60 pt-6 text-center">
+        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed max-w-4xl mx-auto">
+          <strong>Disclaimer:</strong> MarginWize provides educational tools and estimations for business planning. Results are derived from user input figures. They do not constitute formal financial, legal, or accounting advice. Always consult a certified accountant or professional financial advisor before making critical business decisions.
         </p>
       </div>
     </div>
